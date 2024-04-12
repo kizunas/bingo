@@ -1,18 +1,20 @@
 module.exports = {
   root: true,
-  env: {
+  env: { //ESLintが実行される環境を指定(ブラウザとNode.jsを指定)
     browser: true,
-    "jest/globals": true,
     node: true
   },
-  extends: [
-    '@nuxtjs/eslint-config-typescript',
-    'plugin:nuxt/recommended',
+  extends: [ // 他の設定ファイルを継承するための設定
+    '@nuxtjs/eslint-config-typescript', // @nuxtjs/eslint-config-typescriptはNuxt.jsとTypeScriptを使用する場合の推奨設定
+    'prettier', // Prettierの基本設定
+    'prettier/vue', // Vueコンポーネントに対するPrettierの設定
+    'plugin:prettier/recommended', // ESLintに統合するためのプラグインの推奨設定
+    'plugin:nuxt/recommended' // Nuxt.jsプロジェクトのための推奨設定
+  ],
+  plugins: [ // 利用するESLintプラグインを指定。
     'prettier'
   ],
-  plugins: [
-    "jest"
-  ],
   // add your custom rules here
-  rules: {}
+  rules: {
+  }
 }
