@@ -8,7 +8,6 @@
     <h2>ビンゴカード</h2>
     <div class="grid">
       <div v-for="(column, index) in columns" :key="index">
-        <h3>Column {{ index + 1 }}</h3>
         <template v-for="(number, i) in column">
           <div v-if="index === 2 && i === 2" :key="i" class="center-free">FREE</div>
           <div v-else :key="i" class="cell" :class="{ 'center-free': isSelected(number) }">{{ number }}</div>
@@ -16,10 +15,18 @@
       </div>
     </div>
     <div>
-      {{ reach + 'reach' }}
+      {{ 'リーチ数: ' + reach }}
     </div>
     <div>
-      {{ bingo + 'bingo' }}
+      {{ 'ビンゴ数: ' + bingo }}
+    </div>
+    <div>
+      <h3>ボール</h3>
+      <span>{{ displayBall }}</span>
+    </div>
+    <div>
+      <h3>取り出されたボール</h3>
+      <span>{{ displayBalls }}</span>
     </div>
   </div>
 </template>
@@ -29,6 +36,8 @@ export default {
   data() {
     return {
       ballNumbers: [],
+      displayBalls: [],
+      displayBall: null,
       columnB: [],
       columnI: [],
       columnN: [],
@@ -95,6 +104,8 @@ export default {
     const intervalId = setInterval(() => {
         if (this.ballNumbers.length > 0) {
           const numberToPush = this.ballNumbers.shift() // 配列の最初の要素を取得し、配列から削除
+          this.displayBall = numberToPush
+          this.displayBalls.push(numberToPush)
           this.selectedBalls.push(numberToPush)
           this.reach = 0
           this.bingo = 0
