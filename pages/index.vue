@@ -1,9 +1,13 @@
 <template>
   <div>
-    <!-- <h2>Ball Numbers</h2>
-    <div class="grid">
-      <div v-for="number in ballNumbers" :key="number" class="cell">{{ number }}</div>
-    </div> -->
+    <div class="ball-text">
+      <h2>ボール</h2>
+      <span>{{ displayBall }}</span>
+    </div>
+    <div>
+      <h2>取り出されたボール</h2>
+      <span>{{ displayBalls }}</span>
+    </div>
 
     <h2>ビンゴカード</h2>
     <div class="grid">
@@ -19,14 +23,6 @@
     </div>
     <div>
       {{ 'ビンゴ数: ' + bingo }}
-    </div>
-    <div>
-      <h3>ボール</h3>
-      <span>{{ displayBall }}</span>
-    </div>
-    <div>
-      <h3>取り出されたボール</h3>
-      <span>{{ displayBalls }}</span>
     </div>
   </div>
 </template>
