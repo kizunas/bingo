@@ -90,13 +90,6 @@ export default {
 
     this.rightDiagonal.push(this.columns[4][0], this.columns[3][1], this.columns[2][2], this.columns[1][3], this.columns[0][4])
 
-    // freeの番号を最初に取得
-    const selectedNumber = this.columns[2][2]
-    this.selectedBalls.push(selectedNumber)
-
-    // 選択された番号を除外した新しい配列を作成
-    this.ballNumbers = this.ballNumbers.filter(number => number !== selectedNumber)
-
     const intervalId = setInterval(() => {
         if (this.ballNumbers.length > 0) {
           const numberToPush = this.ballNumbers.shift() // 配列の最初の要素を取得し、配列から削除
