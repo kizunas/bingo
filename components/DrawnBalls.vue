@@ -33,11 +33,12 @@ export default {
       if (this.numbers.length > 0) {
         this.displayBall = this.pickRandomAndRemove(this.numbers)
         this.displayBalls.push(this.displayBall)
+        this.$store.dispatch("ballData", this.displayBall)
       }
     },
     pickRandomAndRemove(numbers) {
       const index = Math.floor(Math.random() * numbers.length)
-      const [number] = numbers.splice(index, 1)
+      const [number] = numbers.splice(index, 1) // [number]で配列を一つへ
       return number
     }
   }

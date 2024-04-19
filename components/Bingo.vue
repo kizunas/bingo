@@ -22,6 +22,22 @@
 export default {
   data() {
     return {
+      columnB: [],
+      columnI: [],
+      columnN: [],
+      columnG: [],
+      columnO: [],
+      columns: [],
+      rowB: [],
+      rowI: [],
+      rowN: [],
+      rowG: [],
+      rowO: [],
+      selectedBalls: [],
+      leftDiagonal: [],
+      rightDiagonal: [],
+      reach: 0,
+      bingo: 0,
     }
   },
   mounted() {
@@ -29,7 +45,11 @@ export default {
     this.setColumnData()
     this.setRowData()
     this.setDiagonalData()
-
+  },
+  computed: {
+    ballData () {
+      return this.$store.state.ball
+    },
   },
   methods: {
     setColumnsData() {
@@ -66,7 +86,7 @@ export default {
       this.rightDiagonal.push(this.columns[4][0], this.columns[3][1], this.columns[2][2], this.columns[1][3], this.columns[0][4])
     },
     reachAndBingoCounter() {
-      this.selectedBalls.push(numberToPush)
+      this.selectedBalls.push(this.ballData)
       this.reach = 0
       this.bingo = 0
       this.checkMatches(this.columnB)
