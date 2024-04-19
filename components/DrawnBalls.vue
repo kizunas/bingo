@@ -20,6 +20,18 @@ export default {
       displayBalls: [],
     }
   },
+  computed: {
+    nextBall() {
+      return this.$store.state.getBallFlag
+    },
+  },
+  watch: {
+    nextBall() {
+      if (this.numbers.length > 0) {
+        this.drawnBall()
+      }
+    }
+  },
   mounted() {
     this.setBalls()
   },

@@ -47,8 +47,19 @@ export default {
     this.setDiagonalData()
   },
   computed: {
-    ballData () {
+    ballData() {
       return this.$store.state.ball
+    },
+    nextBall() {
+      return this.$store.state.getBallFlag
+    },
+  },
+  watch: {
+    ballData() {
+      this.reachAndBingoCounter()
+      setTimeout(() => {
+        this.$store.dispatch("getBallFlag", !this.nextBall)
+      }, "1000");
     },
   },
   methods: {
