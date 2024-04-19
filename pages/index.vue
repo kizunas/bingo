@@ -1,5 +1,8 @@
 <template>
   <div>
+    <DrawnBalls />
+
+
     <div class="ball-text">
       <h2>ボール</h2>
       <span>{{ displayBall }}</span>
@@ -28,7 +31,12 @@
 </template>
 
 <script>
+import DrawnBalls from '~/components/DrawnBalls.vue'
+
 export default {
+  components: {
+    DrawnBalls
+  },
   data() {
     return {
       ballNumbers: [],
