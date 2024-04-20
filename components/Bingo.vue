@@ -65,11 +65,11 @@ export default {
   methods: {
     setColumnsData() {
       this.columns = [
-        this.generateUniqueRandomNumbers(1, 15, 5),
-        this.generateUniqueRandomNumbers(16, 30, 5),
-        this.generateUniqueRandomNumbers(31, 45, 5),
-        this.generateUniqueRandomNumbers(46, 60, 5),
-        this.generateUniqueRandomNumbers(61, 75, 5)
+        this.generateUniqueRandomNumbers(1),
+        this.generateUniqueRandomNumbers(16),
+        this.generateUniqueRandomNumbers(31),
+        this.generateUniqueRandomNumbers(46),
+        this.generateUniqueRandomNumbers(61)
       ]
     },
     setColumnData() {
@@ -118,13 +118,15 @@ export default {
         this.checkMatches(property)
       })
     },
-    generateUniqueRandomNumbers(min, max, count) {
-      const set = new Set()
-      while (set.size < count) {
-        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min  // 0~15の範囲にminが足される
-        set.add(randomNumber)
+    generateUniqueRandomNumbers(range) {
+      const array = Array.from({ length: 15 }, (_, i) => i + range)
+      const removedItems = []
+      for (let i = 0; i < 5; i++) {
+      const randomIndex = Math.floor(Math.random() * array.length)
+      const removedItem = array.splice(randomIndex, 1)[0]
+      removedItems.push(removedItem)
       }
-      return Array.from(set)
+      return removedItems
     },
     isSelected(number) {
       return this.selectedBalls.includes(number)
