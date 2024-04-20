@@ -93,25 +93,30 @@ export default {
     setDiagonalData() {
       for (let i = 0; i < 5; i++) {
         this.leftDiagonal.push(this.columns[i][i])
+        this.rightDiagonal.push(this.columns[i][4 - i]);
       }
-      this.rightDiagonal.push(this.columns[4][0], this.columns[3][1], this.columns[2][2], this.columns[1][3], this.columns[0][4])
     },
     reachAndBingoCounter() {
       this.selectedBalls.push(this.ballData)
       this.reach = 0
       this.bingo = 0
-      this.checkMatches(this.columnB)
-      this.checkMatches(this.columnI)
-      this.checkMatches(this.columnN)
-      this.checkMatches(this.columnG)
-      this.checkMatches(this.columnO)
-      this.checkMatches(this.rowB)
-      this.checkMatches(this.rowI)
-      this.checkMatches(this.rowN)
-      this.checkMatches(this.rowG)
-      this.checkMatches(this.rowO)
-      this.checkMatches(this.leftDiagonal)
-      this.checkMatches(this.rightDiagonal)
+      const properties = [
+        this.columnB,
+        this.columnI,
+        this.columnN,
+        this.columnG,
+        this.columnO,
+        this.rowB,
+        this.rowI,
+        this.rowN,
+        this.rowG,
+        this.rowO,
+        this.leftDiagonal,
+        this.rightDiagonal
+      ]
+      properties.forEach(property => {
+        this.checkMatches(property)
+      })
     },
     generateUniqueRandomNumbers(min, max, count) {
       const set = new Set()

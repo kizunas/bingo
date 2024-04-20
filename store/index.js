@@ -3,9 +3,6 @@ export const state = () => ({
   getBallFlag: false,
 })
 
-// export const getters = {
-// }
-
 export const mutations = {
   ballData(state, val) {
     state.ball = val

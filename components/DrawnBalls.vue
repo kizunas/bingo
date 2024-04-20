@@ -50,7 +50,7 @@ export default {
     },
     pickRandomAndRemove(numbers) {
       const index = Math.floor(Math.random() * numbers.length)
-      const [number] = numbers.splice(index, 1) // [number]で配列を一つへ
+      const [number] = numbers.splice(index, 1)
       return number
     }
   }
