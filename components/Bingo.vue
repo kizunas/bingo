@@ -71,6 +71,7 @@ export default {
         this.generateUniqueRandomNumbers(46),
         this.generateUniqueRandomNumbers(61)
       ]
+      this.columns[2][2] = false
     },
     setColumnData() {
       for (let i = 0; i < 5; i++) {
@@ -133,6 +134,9 @@ export default {
     },
     checkMatches(val) {
       let matches = 0
+      if (val.includes(false)) {
+        matches++
+      }
       this.selectedBalls.forEach(ball => {
         if (val.includes(ball)) {
           matches++
