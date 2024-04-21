@@ -41,7 +41,6 @@ export default {
       this.drawnBall()
     },
     drawnBall() {
-      // ランダムに数字を一つ取り出す
       if (this.numbers.length > 0) {
         this.displayBall = this.pickRandomAndRemove(this.numbers)
         this.displayBalls.push(this.displayBall)
