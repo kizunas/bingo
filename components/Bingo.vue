@@ -59,7 +59,7 @@ export default {
       this.reachAndBingoCounter()
       setTimeout(() => {
         this.$store.dispatch("getBallFlag", !this.nextBall)
-      }, "1000");
+      }, "1000")
     },
   },
   methods: {
@@ -93,7 +93,7 @@ export default {
     setDiagonalData() {
       for (let i = 0; i < 5; i++) {
         this.leftDiagonal.push(this.columns[i][i])
-        this.rightDiagonal.push(this.columns[i][4 - i]);
+        this.rightDiagonal.push(this.columns[i][4 - i])
       }
     },
     reachAndBingoCounter() {
